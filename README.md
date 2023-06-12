@@ -10,6 +10,11 @@ Mule Flow Helper is a powerful Visual Studio Code extension that simplifies the 
 - Append Changes: Choose to append your modifications to the existing flow, maintaining the original structure.
 - Code Lens Integration: Utilizes Visual Studio Code's Code Lens feature for intuitive actions.
 
+## Code Lens Actions
+<img width="735" alt="Screenshot 2023-06-12 at 2 45 41 PM" src="https://github.com/ayarabis/mule-flow-helper/assets/99114889/1551aa0e-370a-490b-aa9c-cc6486836f4a">
+
+<img width="811" alt="Screenshot 2023-06-12 at 2 47 58 PM" src="https://github.com/ayarabis/mule-flow-helper/assets/99114889/55694ef6-b052-4027-ae16-ab43eb8a7a38">
+
 ## How to Use
 
 1. Install the Mule Flow Helper extension from the Visual Studio Code Marketplace.
