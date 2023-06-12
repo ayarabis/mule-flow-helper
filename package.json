@@ -19,7 +19,23 @@
     "onLanguage:xml"
   ],
   "main": "./extension.js",
-  "contributes": {},
+  "contributes": {
+    "commands": [
+      {
+        "command": "mule-flow-helper.duplicate",
+        "title": "Duplicate Mule File"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        { 
+          "when": "resourceLangId == xml",
+          "command": "mule-flow-helper.duplicate",
+          "group": "z_navigation"
+        }
+      ]
+    }
+  },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
