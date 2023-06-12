@@ -17,11 +17,14 @@ async function apply(fn, start, end, append = false) {
 
   editor = vscode.window.activeTextEditor;
 
-  const firstLine = document.lineAt(start);
   const lastLineLength = document.lineAt(end).text.length;
 
   if (append) {
     content = content.replace(/doc:id=".*"/, `doc:id="${randomUUID()}"`);
+    const docName = content.match(/name="(.*?)"/)[1];
+    if (editor.document.getText().includes(docName)) {
+      content = content.replace(docName, docName + "-copy");
+    }
 
     await editor.edit((editBuilder) => {
       editBuilder.insert(
