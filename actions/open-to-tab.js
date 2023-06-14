@@ -29,7 +29,7 @@ async function open2tab(name) {
   ).lineNumber;
 
   const filePath = vscode.workspace.asRelativePath(document.uri);
-  const result = `<!-- codebutter:${filePath}[${startLine},${endLine}] -->\n${match[0]}`;
+  const result = `<!-- mule-flow-helper:${filePath}[${startLine},${endLine}] -->${match[0]}`;
 
   let doc = await vscode.workspace.openTextDocument({
     content: result,

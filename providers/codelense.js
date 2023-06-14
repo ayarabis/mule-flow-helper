@@ -50,7 +50,7 @@ class XMLCodeLensProvider {
       } while (!m.done);
     } else {
       const re = new RegExp(
-        "<!-- codebutter:(.*?)(\\[(\\d+),(\\d+)\\])? -->",
+        "<!-- mule-flow-helper:(.*?)(\\[(\\d+),(\\d+)\\])? -->",
         "gm"
       );
 
