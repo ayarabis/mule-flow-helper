@@ -2,7 +2,7 @@
   "name": "mule-flow-helper",
   "displayName": "Mule Flow Helper",
   "description": "Duplicate flow/subflow node into new tab for isolated batch editing and allow quick apply or append to the existing flow",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/ayarabis/mule-flow-helper"

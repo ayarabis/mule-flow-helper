@@ -16,3 +16,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Changed
 - Append "-copy" to doc name if already exists
+
+## [1.1.2] - 2023-06-14
+
+### Changed
+- Fix bug lens not showing on sub-flow
