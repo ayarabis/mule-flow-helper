@@ -10,7 +10,7 @@ class XMLCodeLensProvider {
 
     const content = document.getText();
 
-    if (content.includes("mule")) {
+    if (content.includes("<mule")) {
       // only show code lenses for flow and subflow elements in Mule config files
       const re = new RegExp('<(flow|subflow)( |\n).*(\n?).*">', "gm");
 
