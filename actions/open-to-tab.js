@@ -11,7 +11,9 @@ async function open2tab(name) {
   const content = editor.document.getText();
 
   const re = new RegExp(
-    `\\s<flow\\s+name="${util.escapeRegExp(name)}[^>]*>[\\s\\S]*?(<\\/flow>)`,
+    `\\s+<(?:sub-)?flow\\s+name="${util.escapeRegExp(
+      name
+    )}[^>]*>[\\s\\S]*?(<\\/(?:sub-)?flow>)`,
     "gms"
   );
 

@@ -34,7 +34,7 @@ async function apply(fn, start, end, append = false) {
     });
   } else {
     const range = new vscode.Range(
-      new vscode.Position(start, 0),
+      new vscode.Position(start + 1, 0),
       new vscode.Position(end, lastLineLength)
     );
 

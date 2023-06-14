@@ -11,7 +11,9 @@ function generateId(name) {
   const content = document.getText();
 
   const re = new RegExp(
-    `<flow\\s+name="${util.escapeRegExp(name)}[^>]*>[\\s\\S]*?(<\\/flow>)`,
+    `\\s<(?:sub-)?flow\\s+name="${util.escapeRegExp(
+      name
+    )}[^>]*>[\\s\\S]*?(<\\/(?:sub-)?flow>)`,
     "gms"
   );
   const match = content.match(re);
@@ -34,10 +36,7 @@ function generateId(name) {
   editor.edit((editBuilder) => {
     editBuilder.replace(
       new vscode.Range(
-        new vscode.Position(
-          startLine.lineNumber,
-          startLine.firstNonWhitespaceCharacterIndex
-        ),
+        new vscode.Position(startLine.lineNumber, 0),
         endPosition
       ),
       result

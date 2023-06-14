@@ -12,7 +12,7 @@ class XMLCodeLensProvider {
 
     if (content.includes("<mule")) {
       // only show code lenses for flow and subflow elements in Mule config files
-      const re = new RegExp('<(flow|subflow)( |\n).*(\n?).*">', "gm");
+      const re = new RegExp('<(?:sub-)?flow( |\n).*(\n?).*">', "gm");
 
       const match = content.matchAll(re);
 
@@ -66,7 +66,7 @@ class XMLCodeLensProvider {
         const line = document.lineAt(0);
         const range = new vscode.Range(
           line.lineNumber,
-          line.firstNonWhitespaceCharacterIndex,
+          0,
           line.lineNumber,
           line.range.end.character
         );
