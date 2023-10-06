@@ -20,7 +20,10 @@ async function apply(fn, start, end, append = false) {
   const lastLineLength = document.lineAt(end).text.length;
 
   if (append) {
-    content = content.replace(/doc:id=".*"/, `doc:id="${randomUUID()}"`);
+    var ids = (content.match(/doc:id=".*?"/g) || []);
+    for(let i =0;i < ids.length;i++){
+      content = content.replace(ids[i], `doc:id="${randomUUID()}"`);
+    }
     const docName = content.match(/name="(.*?)"/)[1];
     if (editor.document.getText().includes(docName)) {
       content = content.replace(docName, docName + "-copy");

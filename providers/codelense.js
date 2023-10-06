@@ -12,7 +12,7 @@ class XMLCodeLensProvider {
 
     if (content.includes("<mule")) {
       // only show code lenses for flow and subflow elements in Mule config files
-      const re = new RegExp('<(?:sub-)?flow\\s+\\S+.*>', "gm");
+      const re = new RegExp('<(munit:test|(?:sub-)?flow)\\s+\\S+(.*?>)', "gms");
 
       const match = content.matchAll(re);
       let m = null;
@@ -33,7 +33,7 @@ class XMLCodeLensProvider {
           openLense.command = {
             title: "Open to Tab",
             command: "mule-flow-helper.open2tab",
-            arguments: [name],
+            arguments: [name,line],
           };
           codeLenses.push(openLense);
 

@@ -3,35 +3,38 @@ const util = require("../util");
 
 /**
  * @param {string} name doc:name
+ * @param {import("vscode").TextLine} line start line fo the element
  */
-async function open2tab(name) {
+async function open2tab(name, line) {
   const editor = vscode.window.activeTextEditor;
   const document = editor.document;
 
-  const content = editor.document.getText();
+  const range = new vscode.Range(
+    line.range.start,
+    new vscode.Position(document.lineCount, 1)
+  );
+  const content = editor.document.getText(range);
 
   const re = new RegExp(
-    `\\s+<(?:sub-)?flow\\s+name="${util.escapeRegExp(
+    `\\s+<(munit:test|(sub-)?flow)[\\s\\S]+name="${util.escapeRegExp(
       name
-    )}[^>]*>[\\s\\S]*?(<\\/(?:sub-)?flow>)`,
+    )}"(.*?<\\/(munit:test|(sub-)?flow)>)`,
     "gms"
   );
 
   const match = content.match(re);
-
   const element = match[0];
 
-  const index = content.indexOf(element);
-  const position = document.positionAt(index);
   const matchedLines = element.split("\n");
 
-  const startLine = document.lineAt(position.line).lineNumber;
   const endLine = document.lineAt(
-    position.line + matchedLines.length - 1
+    line.lineNumber + matchedLines.length - 1
   ).lineNumber;
 
   const filePath = vscode.workspace.asRelativePath(document.uri);
-  const result = `<!-- mule-flow-helper:${filePath}[${startLine},${endLine}] -->${match[0]}`;
+  const result = `<!-- mule-flow-helper:${filePath}[${
+    line.lineNumber - 1
+  },${endLine}] -->\n${match[0]}`;
 
   let doc = await vscode.workspace.openTextDocument({
     content: result,

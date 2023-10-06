@@ -21,3 +21,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Changed
 - Fix bug lens not showing on sub-flow
+
+## [1.1.4] - 2023-10-07
+
+### Changed
+- Fix doc:id generation - replace all doc:id within flow
+
+### Added
+- Support for munit flow
