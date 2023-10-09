@@ -15,12 +15,14 @@ function activate(context) {
     );
   });
 
-  context.subscriptions.push(
-    vscode.languages.registerCodeLensProvider(
-      null,
-      new providers.XMLCodeLensProvider()
-    )
-  );
+  ["xml", "mule-xml"].forEach((lang) => {
+    context.subscriptions.push(
+      vscode.languages.registerCodeLensProvider(
+        { language: lang },
+        new providers.XMLCodeLensProvider()
+      )
+    );
+  });
 }
 
 exports.activate = activate;
