@@ -17,7 +17,7 @@ function activate(context) {
 
   context.subscriptions.push(
     vscode.languages.registerCodeLensProvider(
-      { language: "xml" },
+      null,
       new providers.XMLCodeLensProvider()
     )
   );

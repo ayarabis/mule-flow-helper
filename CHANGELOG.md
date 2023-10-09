@@ -29,3 +29,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Added
 - Support for munit flow
+
+## [1.1.4] - 2023-10-08
+
+### Added
+- Support for mule-flow language which comes from Mulesoft Code Builder extenstion
